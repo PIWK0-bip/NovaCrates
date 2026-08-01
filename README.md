@@ -1,3 +1,4 @@
+![novacrates](https://cdn.modrinth.com/data/cached_images/2b1f8b27f6c809996c9164a74d86929dcac2fcb3.png)
 
 # NovaCrates
 
