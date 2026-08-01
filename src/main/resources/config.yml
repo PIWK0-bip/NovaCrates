@@ -1,0 +1,179 @@
+settings:
+  # Chat prefix for all plugin messages (overrides lang file prefix)
+  prefix: "&8[&bNovaCrates&8] &r"
+  language: en
+  animation-duration-ticks: 110
+  default-animation: HOLOGRAM
+  roulette-visible: 7
+  roulette-spacing: 0.38
+  roulette-anchor: face
+  roulette-face-distance: 1.65
+  roulette-face-height: -0.05
+  roulette-face-scale: 0.95
+  roulette-teleport-duration: 3
+  roulette-transform-interp: 3
+  roulette-camera-lag: 1.0  # 1.0=realtime, 0.45=light smooth
+  roulette-intro: true
+  roulette-intro-ticks: 40
+  roulette-intro-material: CHEST  # fallback only; intro uses the opened crate block first
+  guarantee-once-per-multi: true
+  pity-once-per-multi: true
+  log-reward-commands: true
+  vote-reward-key: ""
+  vote-reward-amount: 1
+  hologram-backend: auto  # auto | fancy | decent | armorstand
+  # When true, edits in FancyHolograms/DecentHolograms are saved to crates.yml
+  hologram-sync-from-world: true
+  # true = never overwrite holograms edited via /fholo (recommended)
+  hologram-respect-external: true
+  fancy-holograms: true
+  decent-holograms: true
+  win-screen: false
+  win-title: true
+  win-screen-ticks: 40
+  animation-frame-ticks: 2
+  animation-end-hold-ticks: 30
+  virtual-keys-enabled: true
+  physical-keys-enabled: true
+  particles-enabled: true
+  particle-range: 24
+  win-particles: true
+  hologram-papi-refresh: true
+  hologram-refresh-ticks: 60
+  hologram-papi-global-only: true
+  pending-timeout-seconds: 300
+  autosave-interval-ticks: 200
+  strict-reward-commands: true
+  history-size: 20
+  multi-open-max: 50
+  multi-open-skip-animation: true
+  multi-open-confirm: true
+  multi-open-max-cost: 1000000
+  animation-cooldown-ms: 500
+  pity-bossbar: true
+  pity-actionbar: true
+  input-mode: chat
+  preview-before-open: true
+  hologram-papi-global-only: true
+  offline-queue-max: 20
+  metrics-enabled: true
+  async-open-timeout-ticks: 200
+  player-open-rate-limit: 5
+  cost-confirm-threshold: 10000
+  key-hmac-enabled: true
+  key-hmac-secret: ""
+  keys-mode: both
+  virtual-only-crates: []
+  reward-commands-console-only: false
+  allowed-reward-commands: []
+  log-reward-commands: true
+  vote-reward-key: ""
+  vote-reward-amount: 1
+
+  debug: false
+  animation-per-crate-override: true
+  max-concurrent-animations: 32
+  # Load shedding when many players open at once (entities / TPS safety)
+  scale-soft-cap: 12              # >= this: skip intro, fewer strip items, quieter effects
+  scale-hard-visual-cap: 24       # >= this: minimal 3-item strip, shorter anim
+  scale-anim-duration-ticks: 60   # capped duration under soft load
+  offline-queue-process-on-join-delay-ticks: 20
+  max-reward-command-length: 256
+  allowed-command-prefixes: []
+  animation-styles:
+    HOLOGRAM:
+      duration-ticks: 110
+    CSGO:
+      duration-ticks: 80
+    CHEST:
+      duration-ticks: 80
+    WHEEL:
+      duration-ticks: 100
+    SLOTS:
+      duration-ticks: 70
+
+  global-open-rate-limit: 80
+  blocked-worlds: []
+  blocked-regions: []
+  broadcast-rarities: [EPIC, LEGENDARY, MYTHIC]
+  sounds:
+    COMMON: UI_BUTTON_CLICK
+    UNCOMMON: ENTITY_EXPERIENCE_ORB_PICKUP
+    RARE: ENTITY_PLAYER_LEVELUP
+    EPIC: ENTITY_ENDER_DRAGON_GROWL
+    LEGENDARY: UI_TOAST_CHALLENGE_COMPLETE
+    MYTHIC: ENTITY_WITHER_SPAWN
+  daily-open-limit: 0
+  daily-open-limit-permissions:
+    novacrates.limit.vip: 20
+    novacrates.limit.mvp: 50
+  crate-daily-limits: {}
+  editor-material-blacklist: [BEDROCK, BARRIER, COMMAND_BLOCK, STRUCTURE_BLOCK]
+  key-shop:
+    enabled: true
+    currency: MONEY
+    material: GOLD_INGOT
+    entries:
+      vote: { price: 1000, amount: 1, virtual: true }
+  discord-webhook:
+    enabled: false
+    url: ""
+    rarities: [EPIC, LEGENDARY, MYTHIC]
+    message: "**%player%** won **%reward%** (%rarity%) from **%crate%**!"
+    use-embed: true
+
+battle-pass:
+  enabled: true
+  default-track: default
+  points-per-open: 1
+  tracks:
+    default:
+      tiers:
+        "1":
+          points: 10
+          commands: ["say %player% claimed battle pass tier 1!"]
+          virtual-key: vote
+          virtual-key-amount: 1
+        "2":
+          points: 25
+          commands: ["say %player% claimed battle pass tier 2!"]
+          virtual-key: vote
+          virtual-key-amount: 2
+        "3":
+          points: 50
+          commands: []
+          virtual-key: vote
+          virtual-key-amount: 5
+
+database:
+  # sqlite | mysql
+  type: sqlite
+  pool-size: 10
+  migrate-on-start: true
+  mysql:
+    host: localhost
+    port: 3306
+    database: novacrates
+    username: root
+    password: ""
+    use-ssl: false
+
+validation:
+  min-rewards: 1
+  max-rewards: 100
+  warn-zero-chance: true
+
+milestones:
+  enabled: true
+  every: 100
+  commands: ["say %player% reached %count% crate opens!"]
+  give-virtual-key: vote
+  give-virtual-key-amount: 1
+
+
+# Co N otwarć wymuś nagrodę (0 = off)
+guaranteed-sequence:
+  # vote:
+  #   every: 15
+  #   reward-id: rare_1
+  #   # albo: rarity: RARE

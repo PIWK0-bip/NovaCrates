@@ -1,0 +1,13 @@
+keys:
+  default:
+    material: TRIPWIRE_HOOK
+    name: "&b%key% Key"
+    lore:
+      - "&7Used by NovaCrates"
+    custom-model-data: 0
+  vote:
+    material: TRIPWIRE_HOOK
+    name: "&aVote Key"
+    lore:
+      - "&7Opens the Vote Crate"
+    custom-model-data: 0

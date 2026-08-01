@@ -1,0 +1,78 @@
+pools:
+  common-loot:
+    iron:
+      material: IRON_INGOT
+      amount: 4
+      weight: 50
+      name: "&fIron"
+      rarity: COMMON
+
+crates:
+  vote:
+    display-name: "&aVote Crate"
+    key-id: "vote"
+    animation: HOLOGRAM
+    cooldown-seconds: 0
+    reward-pools:
+      - common-loot
+    pity:
+      threshold: 25
+      reward: "rare-diamond"
+      soft-start: 15
+      soft-boost-per-open: 2.0
+    pass:
+      points: 1
+      track: default
+    cost:
+      type: "NONE"
+      amount: 0
+    hologram:
+      enabled: true
+      lines:
+        - "&aVote Crate"
+        - "&7Left: preview  Right: open"
+    rewards:
+      uncommon-gold:
+        material: "GOLD_INGOT"
+        amount: 4
+        weight: 30.0
+        display-chance: 30.0
+        name: "&6Gold Bundle"
+        rarity: "UNCOMMON"
+      rare-diamond:
+        material: "DIAMOND"
+        amount: 2
+        weight: 5.0
+        display-chance: 5.0
+        name: "&bMythic Diamonds"
+        rarity: "MYTHIC"
+        broadcast: true
+        commands:
+          - "say %player% found the mythic reward!"
+
+  elite:
+    display-name: "&6Elite Crate"
+    key-id: "elite"
+    animation: "WHEEL"
+    cooldown-seconds: 0
+    unlock:
+      requires-crate: vote
+      requires-opens: 25
+      # permission: novacrates.unlock.elite
+    pass:
+      points: 2
+      track: default
+    hologram:
+      enabled: true
+      lines:
+        - "&6Elite Crate"
+        - "&7Keys: %novacrates_keys_elite%"
+        - "&7Right-click to open"
+    rewards:
+      elite-netherite:
+        material: NETHERITE_INGOT
+        amount: 1
+        weight: 10
+        name: "&8Netherite"
+        rarity: LEGENDARY
+        broadcast: true

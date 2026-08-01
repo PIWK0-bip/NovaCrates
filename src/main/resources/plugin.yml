@@ -1,0 +1,38 @@
+name: NovaCrates
+version: 2.6.4
+main: com.skritped.novacrates.NovaCratesPlugin
+api-version: '1.20'
+authors: [Skritped]
+softdepend: [Vault, PlaceholderAPI, WorldGuard, PlayerPoints, DecentHolograms, FancyHolograms, FancyDialogs, CoinsEngine]
+commands:
+  crates:
+    description: Manage and open NovaCrates
+    usage: /crates <list|open|preview|settings|lang|...>
+    aliases: [crate, create, creates, nv, novacrates]
+permissions:
+  novacrates.admin:
+    default: op
+    children:
+      novacrates.admin.reload: true
+      novacrates.admin.givekey: true
+      novacrates.admin.editor: true
+      novacrates.admin.doctor: true
+      novacrates.admin.settings: true
+  novacrates.admin.reload:
+    default: op
+  novacrates.admin.givekey:
+    default: op
+  novacrates.admin.editor:
+    default: op
+  novacrates.admin.doctor:
+    default: op
+  novacrates.admin.settings:
+    default: op
+  novacrates.open:
+    default: true
+  novacrates.shop:
+    default: true
+  novacrates.limit.vip:
+    default: false
+  novacrates.limit.mvp:
+    default: false
