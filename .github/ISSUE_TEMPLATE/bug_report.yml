@@ -1,0 +1,54 @@
+name: Bug report
+description: Report something that does not work
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please fill in the sections below.
+  - type: input
+    id: version
+    attributes:
+      label: NovaCrates version
+      placeholder: "2.6.4"
+    validations:
+      required: true
+  - type: input
+    id: server
+    attributes:
+      label: Server software & version
+      placeholder: "Paper 1.20.6 / 1.21.1"
+    validations:
+      required: true
+  - type: textarea
+    id: plugins
+    attributes:
+      label: Relevant plugins
+      placeholder: "FancyHolograms, PlaceholderAPI, Vault..."
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      description: Paste console errors or upload images
