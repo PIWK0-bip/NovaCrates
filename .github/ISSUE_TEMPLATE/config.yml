@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions / support
+    url: https://github.com/PIWK0/NovaCrates/discussions
+    about: Ask questions here instead of opening an issue (update URL)
